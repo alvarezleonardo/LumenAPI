@@ -7,7 +7,7 @@ class Curso extends Model
 	protected $fillable = ['titulo', 'descripcion', 'valor'];
 	protected $hidden = ['id', 'created_at', 'updated_at'];
 
-	public function profesor()
+	public function profesores()
 	{
 		return $this->belongsTo('App\Profesor');
 	}	

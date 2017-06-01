@@ -14,6 +14,10 @@ class ProfesorMigration extends Migration
     {
         Schema::create('profesor', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre');
+            $table->string('direccion');
+            $table->string('telefono');
+            $table->string('profesion');
             $table->timestamps();
         });
     }
