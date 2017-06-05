@@ -36,3 +36,5 @@ $factory->define(App\Curso::class, function ($faker) {
         'valor' => $faker->numberBetween(1,4),
     ];
 });
+
+?>

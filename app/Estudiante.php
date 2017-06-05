@@ -4,13 +4,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estudiante extends Model
 {
+	protected $table = 'estudiante';
 	protected $fillable = ['nombre', 'direccion', 'telefono', 'carrera'];
 	protected $hidden = ['id', 'created_at', 'updated_at'];
 
 	public function cursos()
 	{
-		return $this->belongsToMany('App\Curso')
+		return $this->belongsToMany('App\Curso');
 	}	
 
 
 }
+?>

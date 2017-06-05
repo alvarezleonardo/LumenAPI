@@ -3,46 +3,70 @@
 	{
 		"selected_items":
 		[
+			[
+				"crear",
+				"crearRespuesta"
+			],
+			[
+				"H",
+				"Http〔namespace〕"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "database/migrations/2017_05_31_185312_CursoMigration.php",
+			"contents": "<?php namespace App\\Http\\Controllers;\n\nuse App\\Estudiante;\n\nclass EstudianteController extends Controller\n{\n   \n    public function index(){\n        $estudiante = Estudiante::all();\n        return $this->crearRespuesta($estudiante, 200);\n    }\n\n    public function show($id){\n        $estudiante = Estudiante::find($id);\n\n        if($estudiante)\n        {       \n            return $this->crearRespuesta($estudiante, 200);\n        }\n\n        return $this->crearRespuestaError(\"Estidiante no encontrado\", 404);\n\n    }\n\n\n\n    public function store(){\n\t\treturn \"desde estudiantecontroller store\";\n    }\n\n\n    public function update(){\n\t\treturn \"desde estudiantecontroller update\";\n\n    }\n\n \n    public function destroy(){\n\t\treturn \"desde estudiantecontroller destroy\";\n    }\n}\n",
+			"file": "app/Http/Controllers/EstudianteController.php",
+			"file_size": 808,
+			"file_write_time": 131410824168449511,
 			"settings":
 			{
-				"buffer_size": 790,
+				"buffer_size": 774,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "database/migrations/2017_05_31_185333_CursoEstudianteMigration.php",
+			"file": "app/Http/Controllers/ProfesorController.php",
 			"settings":
 			{
-				"buffer_size": 837,
+				"buffer_size": 1119,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "<?php\n\nuse Illuminate\\Database\\Seeder;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nuse App\\Curso;\nuse App\\Estudiante;\nuse App\\Profesor;\n\n\n\nclass DatabaseSeeder extends Seeder {\n\n\t/**\n\t * Run the database seeds.\n\t *\n\t * @return void\n\t */\n\tpublic function run()\n\t{\n\t\tDB::statement('set foreign_key_checks = 0');\n\t\tEstudiante::truncate();\n\t\tProfesor::truncate();\n\t\tCurso::truncate()\n\t\tDB::table('curso_estudiante')->truncate();\n\t\t//Model::unguard();\n\n\t\t//$this->call('UserTableSeeder');\n\t\tfactory(Profesor::class, 50)->create();\n\t\tfactory(Estudiante::class, 500)->create();\n\t\tfactory(Curso::class, 40)->create(['profesor_id'=> mt_rand(1, 50)])->each(function($curso){\n\t\t\t\t\t$curso->estudiantes()->attach(array_rand(range(1, 500),40));\n\t\t\t\t});\n\n\t}\n\n}\n",
-			"file": "database/seeds/DatabaseSeeder.php",
-			"file_size": 776,
-			"file_write_time": 131407588763607674,
+			"file": "app/Http/Controllers/CursoEstudianteController.php",
 			"settings":
 			{
-				"buffer_size": 743,
+				"buffer_size": 365,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Controller.php",
+			"settings":
+			{
+				"buffer_size": 595,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "database/factories/ModelFactory.php",
+			"file": "app/Http/Controllers/CursoController.php",
 			"settings":
 			{
-				"buffer_size": 1207,
+				"buffer_size": 442,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/routes.php",
+			"settings":
+			{
+				"buffer_size": 2022,
 				"line_ending": "Windows"
 			}
 		}
@@ -86,25 +110,36 @@
 	[
 		"/E/GitHub/LumenAPI",
 		"/E/GitHub/LumenAPI/app",
-		"/E/GitHub/LumenAPI/database",
+		"/E/GitHub/LumenAPI/app/Http",
+		"/E/GitHub/LumenAPI/app/Http/Controllers",
+		"/E/GitHub/LumenAPI/apunte",
 		"/E/GitHub/LumenAPI/database/factories",
 		"/E/GitHub/LumenAPI/database/migrations",
-		"/E/GitHub/LumenAPI/database/seeds"
+		"/E/GitHub/LumenAPI/database/seeds",
+		"/E/GitHub/LumenAPI/public"
 	],
 	"file_history":
 	[
+		"/E/GitHub/LumenAPI/app/Http/Controllers/CursoController.php",
+		"/E/GitHub/LumenAPI/app/Http/Controllers/EstudianteController.php",
+		"/E/GitHub/LumenAPI/app/Http/Controllers/CursoEstudianteController.php",
+		"/E/GitHub/LumenAPI/app/Http/Controllers/ProfesorController.php",
+		"/E/GitHub/LumenAPI/app/Http/Controllers/ProfesorCursoController.php",
+		"/E/GitHub/LumenAPI/Homestead.yaml",
+		"/E/GitHub/LumenAPI/app/Http/routes.php",
+		"/E/GitHub/LumenAPI/apunte/Rutas.txt",
+		"/E/GitHub/LumenAPI/app/Profesor.php",
+		"/E/GitHub/LumenAPI/app/Estudiante.php",
+		"/E/GitHub/LumenAPI/app/Curso.php",
+		"/E/GitHub/LumenAPI/database/factories/ModelFactory.php",
+		"/E/GitHub/LumenAPI/database/migrations/2017_05_31_185312_CursoMigration.php",
 		"/E/GitHub/LumenAPI/database/seeds/DatabaseSeeder.php",
 		"/E/GitHub/LumenAPI/database/migrations/2017_05_31_185333_CursoEstudianteMigration.php",
+		"/E/GitHub/LumenAPI/database/migrations/2017_06_03_203518_ProfesorMigration.php",
 		"/E/GitHub/LumenAPI/database/migrations/2017_05_31_185212_ProfesorMigration.php",
-		"/E/GitHub/LumenAPI/database/factories/ModelFactory.php",
-		"/E/GitHub/LumenAPI/app/Profesor.php",
-		"/E/GitHub/LumenAPI/app/Curso.php",
 		"/E/GitHub/LumenAPI/.env",
-		"/E/GitHub/LumenAPI/Homestead.yaml",
-		"/E/GitHub/LumenAPI/app/Estudiante.php",
 		"/E/GitHub/LumenAPI/database/migrations/2017_05_31_185256_EstudianteMigration.php",
 		"/E/GitHub/LumenAPI/LumenAPI.sublime-project",
-		"/E/GitHub/LumenAPI/database/migrations/2017_05_31_185312_CursoMigration.php",
 		"/C/xampp/htdocs/LumenAPI/resources/lang/es/validation.php",
 		"/C/xampp/htdocs/LumenAPI/bootstrap/app.php",
 		"/C/xampp/htdocs/LumenAPI/.env",
@@ -114,7 +149,7 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -128,6 +163,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"estudiante",
+			"Estudiante",
+			"estudiante",
+			"Estudiante",
+			"estudiante",
+			"        $estudiante = Curso::all();\n",
+			"curso",
+			"cursos",
+			"profesores",
+			"ProfesorCursoController",
+			"ProfesorController",
+			"profesores",
+			"ProfesorController",
+			"estudiantecontroller",
+			"CursoEstudianteController"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -145,24 +195,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "database/migrations/2017_05_31_185312_CursoMigration.php",
+					"file": "app/Http/Controllers/EstudianteController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 790,
+						"buffer_size": 774,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								587,
-								587
+								244,
+								244
 							]
 						],
 						"settings":
@@ -176,24 +226,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "database/migrations/2017_05_31_185333_CursoEstudianteMigration.php",
+					"file": "app/Http/Controllers/ProfesorController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 837,
+						"buffer_size": 1119,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								358,
-								358
+								685,
+								685
 							]
 						],
 						"settings":
@@ -202,6 +252,63 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 96.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Http/Controllers/CursoEstudianteController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 365,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/Http/Controllers/Controller.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 595,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								95,
+								124
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -211,58 +318,26 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "database/seeds/DatabaseSeeder.php",
+					"buffer": 4,
+					"file": "app/Http/Controllers/CursoController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 743,
+						"buffer_size": 442,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								485,
-								485
+								84,
+								84
 							]
 						],
 						"settings":
 						{
 							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "database/factories/ModelFactory.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1207,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								682,
-								682
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -270,13 +345,41 @@
 					},
 					"stack_index": 1,
 					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/Http/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2022,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1280,
+								1280
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -313,7 +416,7 @@
 	"project": "LumenAPI.sublime-project",
 	"replace":
 	{
-		"height": 0.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":

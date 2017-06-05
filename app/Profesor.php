@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profesor extends Model
 {
+	protected $table = 'profesor';
 	protected $fillable = ['nombre', 'direccion', 'telefono', 'profesion'];
 	protected $hidden = ['id', 'created_at', 'updated_at'];
 
@@ -13,3 +14,4 @@ class Profesor extends Model
 	}
 
 }
+?>

@@ -4,18 +4,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Curso extends Model
 {
+	protected $table = 'curso';
 	protected $fillable = ['titulo', 'descripcion', 'valor'];
 	protected $hidden = ['id', 'created_at', 'updated_at'];
 
-	public function profesores()
+	public function profesor()
 	{
 		return $this->belongsTo('App\Profesor');
 	}	
 
 	public function estudiantes()
 	{
-		return $this->belongsToMany('App\Estudiante')
+		return $this->belongsToMany('App\Estudiante');
 	}	
 
 
 }
+?>

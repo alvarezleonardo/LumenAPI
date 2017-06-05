@@ -19,13 +19,14 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		DB::statement('set foreign_key_checks = 0');
+		DB::table('curso_estudiante')->truncate();
 		Estudiante::truncate();
 		Profesor::truncate();
-		Curso::truncate()
-		DB::table('curso_estudiante')->truncate();
-		Model::unguard();
+		Curso::truncate();
+		
+		//Model::unguard();
 
-		$this->call('UserTableSeeder');
+		//$this->call('UserTableSeeder');
 		factory(Profesor::class, 50)->create();
 		factory(Estudiante::class, 500)->create();
 		factory(Curso::class, 40)->create(['profesor_id'=> mt_rand(1, 50)])->each(function($curso){
