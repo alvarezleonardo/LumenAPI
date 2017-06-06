@@ -23,7 +23,6 @@
 			"settings":
 			{
 				"buffer_size": 774,
-				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -113,9 +112,6 @@
 		"/E/GitHub/LumenAPI/app/Http",
 		"/E/GitHub/LumenAPI/app/Http/Controllers",
 		"/E/GitHub/LumenAPI/apunte",
-		"/E/GitHub/LumenAPI/database/factories",
-		"/E/GitHub/LumenAPI/database/migrations",
-		"/E/GitHub/LumenAPI/database/seeds",
 		"/E/GitHub/LumenAPI/public"
 	],
 	"file_history":
@@ -242,8 +238,8 @@
 						"selection":
 						[
 							[
-								685,
-								685
+								893,
+								893
 							]
 						],
 						"settings":
@@ -254,7 +250,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 96.0,
+						"translation.y": 186.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -301,8 +297,8 @@
 						"selection":
 						[
 							[
-								95,
-								124
+								592,
+								592
 							]
 						],
 						"settings":
@@ -314,7 +310,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -343,7 +339,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -359,8 +355,8 @@
 						"selection":
 						[
 							[
-								1280,
-								1280
+								482,
+								482
 							]
 						],
 						"settings":
@@ -371,7 +367,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
