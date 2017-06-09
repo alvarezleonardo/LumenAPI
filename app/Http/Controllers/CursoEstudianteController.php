@@ -1,16 +1,45 @@
 <?php namespace App\Http\Controllers;
 
-
-
+use App\Curso;
+use App\Estudiante;
 class CursoEstudianteController extends Controller
 {
     
-	public funtcion index(){
-    	return "desde CursoEstudianteController index";
+	public function index($curso_id){
+    	$curso = Curso::find($curso_id);
+        if($curso)
+        {
+            $estudiantes = $curso->estudiantes;
+            return $this->crearRespuesta($estudiantes, 200);
+        }
+        else
+        {
+           return $this->crearRespuestaError("No se puede encontrar un curso con ese ID", 404);     
+        }
+        
     }
 
-    public function store(){
-		return "desde CursoEstudianteController store";
+
+    public function store($curso_id, $estudiante_id){
+		$curso = Curso::find($curso_id);
+		if($curso)
+		{
+			$estudiante = Estudiante::find($estudiante_id);
+			if($estudiante)
+			{
+				$estudiantes = $curso->estudiantes();
+				$estudiante = $estudiantes->find($estudiante_id);
+				if($estudiante)
+				{
+					return $this->crearRespuesta("El estudiante ya se encuentra en el curso", 409);
+				}
+				$curso->estudiantes()->attach($estudiante_id);
+				return $this->crearRespuesta("El estudiante fue agregado perfectamente al curso", 200);
+			}
+			return $this->crearRespuesta("No se encuentra un estudiante con ese id", 404);
+		}
+		return $this->crearRespuesta("No se encuentra un curso con ese id", 404);
+
     }
 
      public function destroy(){

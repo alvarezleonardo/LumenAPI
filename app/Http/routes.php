@@ -34,9 +34,9 @@ $app->put('/profesores/{profesores}/cursos/{cursos}', "ProfesorCursoController@u
 $app->patch('/profesores/{profesores}/cursos/{cursos}', "ProfesorCursoController@update");
 $app->delete('/profesores/{profesores}/cursos/{cursos}', "ProfesorCursoController@destroy");
 
-$app->get('/cursos/{cursos}/estudiantes', "CursoEstudianteControll@index");
-$app->post('/cursos/{cursos}/estudiantes/{estudiantes}', "CursoEstudianteControll@store");
-$app->delete('/cursos/{cursos}/estudiantes/{estudiantes}', "CursoEstudianteControll@destroy");
+$app->get('/cursos/{cursos}/estudiantes', "CursoEstudianteController@index");
+$app->post('/cursos/{cursos}/estudiantes/{estudiantes}', "CursoEstudianteController@store");
+$app->delete('/cursos/{cursos}/estudiantes/{estudiantes}', "CursoEstudianteController@destroy");
 
 
 
