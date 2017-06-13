@@ -3,3 +3,10 @@
 /.vagrant
 /Homestead.yaml
 /.env
+/.vagrant/machines/lumenapi/virtualbox/action_provision
+/.vagrant/machines/lumenapi/virtualbox/action_set_name
+/.vagrant/machines/lumenapi/virtualbox/creator_uid
+/.vagrant/machines/lumenapi/virtualbox/id
+/.vagrant/machines/lumenapi/virtualbox/index_uuid
+/.vagrant/machines/lumenapi/virtualbox/private_key
+/.vagrant/machines/lumenapi/virtualbox/synced_folders

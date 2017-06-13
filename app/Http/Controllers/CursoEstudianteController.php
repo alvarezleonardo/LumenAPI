@@ -42,8 +42,19 @@ class CursoEstudianteController extends Controller
 
     }
 
-     public function destroy(){
-		return "desde CursoEstudianteController destroy";
+     public function destroy($curso_id, $profesor_id){
+		$curso = Curso::find($curso_id);
+		if($curso)
+		{
+			$estudiantes = $curso->estudiantes();
+			if($estudiantes->find($estudiante_id))
+			{
+				$estudiantes->detach($estudiante_id);
+				return $this->crearRespuesta("El estudiante fue eliminado correctamente del curso", 200);
+			}
+			return $this->crearRespuesta("No se encuentra el estudiante con ese id", 404);
+		}
+		return $this->crearRespuesta("No se encuentra un curso con ese id", 404);
     }
 
 

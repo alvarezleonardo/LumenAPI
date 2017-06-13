@@ -38,14 +38,51 @@ class ProfesorCursoController extends Controller
     }
 
    
-    public function update(){
-		return "desde ProfesorCursoController update";
+    public function update(Request $request, $profesor_id, $curso_id){
+		$profesor = Profesor::find($profesor_id);
+        if($profesor)
+        {
+            $curso = Curso::find($curso_id);
+            if($curso)
+            {
+                $this->validacion($request);
+                
+                $curso->titulo = $request->get("titulo");
+                $curso->descripcion = $request->get("descripcion");
+                $curso->valor = $request->get("valor");
+                $curso->profesor_id = $profesor_id;
+
+                $curso->save();
+                return $this->crearRespuesta("Curso actualizado satisfactoriamente", 200);
+     
+
+
+            }
+            return $this->crearRespuestaError("Curso no encontrado", 404);       
+        }
+        return $this->crearRespuestaError("Profesor no encontrado", 404);
+
 
     }
 
  
-    public function destroy(){
-		return "desde ProfesorCursoController destroy";
+    public function destroy($profesor_id, $curso_id){
+		$profesor = Profesor::find($profesor_id);
+        if($profesor)
+        {
+            $cursos = $profesor->cursos();
+            if($cursos->find($curso_id))
+            {
+                $curso = Curso::Find($curso_id);
+                $curso->estudiantes()->detach();
+                $curso->delete();
+                return $this->crearRespuesta("Curso borrado satisfactoriamente", 200);
+
+            }
+            return $this->crearRespuestaError("El curso no lo tiene vinculado", 404);
+
+        }
+        return $this->crearRespuestaError("Profesor no encontrado", 404);
     }
 
 
